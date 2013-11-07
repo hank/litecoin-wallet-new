@@ -25,7 +25,7 @@
 			<scope>provided</scope>
 		</dependency>
 
-		<!-- de.schildbach.wallet.integration.android.* -->
+		<!-- de.schildbach.litecoinwalletinwallet.integration.android.* -->
 		<dependency>
 			<groupId>de.schildbach.wallet</groupId>
 			<artifactId>integration-android</artifactId>
