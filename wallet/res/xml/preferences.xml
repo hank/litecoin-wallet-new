@@ -19,6 +19,12 @@
 			android:summary="@string/preferences_trusted_peer_only_summary"
 			android:title="@string/preferences_trusted_peer_only_title" />
 
+        <EditTextPreference
+                android:key="trusted_peer_port"
+                android:summary="@string/preferences_trusted_peer_port_summary"
+                android:title="@string/preferences_trusted_peer_port_title"
+                android:inputType="phone"/>
+
 		<Preference
 			android:key="data_usage"
 			android:summary="@string/preferences_data_usage_summary"

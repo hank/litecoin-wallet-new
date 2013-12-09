@@ -873,10 +873,11 @@ public final class WalletActivity extends AbstractOnDemandServiceActivity
 		try
 		{
 			Constants.EXTERNAL_WALLET_BACKUP_DIR.mkdirs();
-			final DateFormat dateFormat = Iso8601Format.newDateFormat();
+            Date date = new Date();
+			final DateFormat dateFormat =  Iso8601Format.newDateFormat();
 			dateFormat.setTimeZone(TimeZone.getDefault());
 			final File file = new File(Constants.EXTERNAL_WALLET_BACKUP_DIR, Constants.EXTERNAL_WALLET_KEY_BACKUP + "-"
-					+ dateFormat.format(new Date()));
+					+ dateFormat.format(date) + "-" + date.getTime());
 
 			final List<ECKey> keys = new LinkedList<ECKey>();
 			for (final ECKey key : wallet.getKeys())

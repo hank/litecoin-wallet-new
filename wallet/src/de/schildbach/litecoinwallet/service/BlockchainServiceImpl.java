@@ -35,6 +35,8 @@ import javax.annotation.CheckForNull;
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 
+import android.util.Log;
+import com.google.litecoin.discovery.SeedPeers;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -401,14 +403,17 @@ public class BlockchainServiceImpl extends android.app.Service implements Blockc
 				final int maxConnectedPeers = application.maxConnectedPeers();
 
 				final String trustedPeerHost = prefs.getString(Constants.PREFS_KEY_TRUSTED_PEER, "").trim();
-				final boolean hasTrustedPeer = !trustedPeerHost.isEmpty();
+                final String trustedPeerPort = prefs.getString(Constants.PREFS_KEY_TRUSTED_PEER_PORT,
+                        Integer.toString(Constants.NETWORK_PARAMETERS.getPort())).trim();
+
+                final boolean hasTrustedPeer = !trustedPeerHost.isEmpty();
 
 				final boolean connectTrustedPeerOnly = hasTrustedPeer && prefs.getBoolean(Constants.PREFS_KEY_TRUSTED_PEER_ONLY, false);
 				peerGroup.setMaxConnections(connectTrustedPeerOnly ? 1 : maxConnectedPeers);
-
 				peerGroup.addPeerDiscovery(new PeerDiscovery()
 				{
 					private final PeerDiscovery normalPeerDiscovery = new DnsDiscovery(Constants.NETWORK_PARAMETERS);
+                    private final PeerDiscovery seedPeers = new SeedPeers(Constants.NETWORK_PARAMETERS);
 
 					@Override
 					public InetSocketAddress[] getPeers(final long timeoutValue, final TimeUnit timeoutUnit) throws PeerDiscoveryException
@@ -419,7 +424,7 @@ public class BlockchainServiceImpl extends android.app.Service implements Blockc
 
 						if (hasTrustedPeer)
 						{
-							final InetSocketAddress addr = new InetSocketAddress(trustedPeerHost, Constants.NETWORK_PARAMETERS.getPort());
+							final InetSocketAddress addr = new InetSocketAddress(trustedPeerHost, new Integer(trustedPeerPort));
 							if (addr.getAddress() != null)
 							{
 								peers.add(addr);
@@ -427,8 +432,21 @@ public class BlockchainServiceImpl extends android.app.Service implements Blockc
 							}
 						}
 
-						if (!connectTrustedPeerOnly)
-							peers.addAll(Arrays.asList(normalPeerDiscovery.getPeers(timeoutValue, timeoutUnit)));
+                        if (!connectTrustedPeerOnly) {
+                            List discoveredpeers;
+                            try {
+                                discoveredpeers = Arrays.asList(seedPeers.getPeers(timeoutValue, timeoutUnit));
+                                peers.addAll(discoveredpeers);
+                            } catch (PeerDiscoveryException e) {
+                                Log.i(this.getClass().toString(), "Failed to discover peers: " + e.getMessage());
+                            }
+                            try {
+                                discoveredpeers = Arrays.asList(normalPeerDiscovery.getPeers(timeoutValue, timeoutUnit));
+                                peers.addAll(discoveredpeers);
+                            } catch (PeerDiscoveryException e) {
+                                Log.i(this.getClass().toString(), "Failed to discover peers: " + e.getMessage());
+                            }
+                        }
 
 						// workaround because PeerGroup will shuffle peers
 						if (needsTrimPeersWorkaround)
@@ -775,7 +793,7 @@ public class BlockchainServiceImpl extends android.app.Service implements Blockc
 	public void broadcastTransaction(final Transaction tx)
 	{
 		if (peerGroup != null)
-			peerGroup.broadcastTransaction(tx);
+			peerGroup.broadcastTransaction(tx, 1);
 	}
 
 	@Override
