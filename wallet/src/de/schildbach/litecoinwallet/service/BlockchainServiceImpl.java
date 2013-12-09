@@ -341,8 +341,9 @@ public class BlockchainServiceImpl extends android.app.Service implements Blockc
 	{
 		private boolean hasConnectivity;
 		private boolean hasStorage = true;
+        public String trustedPeerPort;
 
-		@Override
+        @Override
 		public void onReceive(final Context context, final Intent intent)
 		{
 			final String action = intent.getAction();
@@ -403,8 +404,11 @@ public class BlockchainServiceImpl extends android.app.Service implements Blockc
 				final int maxConnectedPeers = application.maxConnectedPeers();
 
 				final String trustedPeerHost = prefs.getString(Constants.PREFS_KEY_TRUSTED_PEER, "").trim();
-                final String trustedPeerPort = prefs.getString(Constants.PREFS_KEY_TRUSTED_PEER_PORT,
+                trustedPeerPort = prefs.getString(Constants.PREFS_KEY_TRUSTED_PEER_PORT,
                         Integer.toString(Constants.NETWORK_PARAMETERS.getPort())).trim();
+                if(trustedPeerPort.equals("")) {
+                    trustedPeerPort = Integer.toString(Constants.NETWORK_PARAMETERS.getPort());
+                }
 
                 final boolean hasTrustedPeer = !trustedPeerHost.isEmpty();
 
