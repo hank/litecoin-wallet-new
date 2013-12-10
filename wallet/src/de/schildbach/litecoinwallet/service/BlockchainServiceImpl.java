@@ -37,6 +37,7 @@ import javax.annotation.Nullable;
 
 import android.util.Log;
 import com.google.litecoin.discovery.SeedPeers;
+import com.google.litecoin.script.Script;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -145,7 +146,12 @@ public class BlockchainServiceImpl extends android.app.Service implements Blockc
 			notifyWidgets();
 		}
 
-		@Override
+        @Override
+        public void onScriptsAdded(Wallet wallet, List<Script> scripts) {
+            // TODO: Consider doing something later.
+        }
+
+        @Override
 		public void onCoinsReceived(final Wallet wallet, final Transaction tx, final BigInteger prevBalance, final BigInteger newBalance)
 		{
 			transactionsReceived.incrementAndGet();
