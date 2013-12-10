@@ -17,6 +17,7 @@
 
 package de.schildbach.litecoinwallet.service;
 
+import android.text.format.DateUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -28,6 +29,7 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.preference.PreferenceManager;
 import de.schildbach.litecoinwallet.Constants;
+
 
 /**
  * @author Andreas Schildbach
@@ -63,6 +65,9 @@ public class AutosyncReceiver extends BroadcastReceiver
 			alarmInterval = AlarmManager.INTERVAL_HALF_DAY;
 		else
 			alarmInterval = AlarmManager.INTERVAL_DAY;
+
+		log.info("last used {} minutes ago, rescheduling sync in roughly {} minutes", lastUsedAgo / DateUtils.MINUTE_IN_MILLIS, alarmInterval
+				/ DateUtils.MINUTE_IN_MILLIS);
 
 		final PendingIntent alarmIntent = PendingIntent.getService(context, 0, serviceIntent, 0);
 		alarmManager.setInexactRepeating(AlarmManager.RTC_WAKEUP, now, alarmInterval, alarmIntent);

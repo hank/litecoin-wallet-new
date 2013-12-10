@@ -46,7 +46,7 @@ public class Constants
 	public static final String WALLET_KEY_BACKUP_BASE58 = "key-backup-base58" + FILENAME_NETWORK_SUFFIX;
 
 	public static final File EXTERNAL_WALLET_BACKUP_DIR = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS);
-	public static final String EXTERNAL_WALLET_KEY_BACKUP = "bitcoin-litecoinwallet-keys" + FILENAME_NETWORK_SUFFIX;
+	public static final String EXTERNAL_WALLET_KEY_BACKUP = "litecoinwallet-keys" + FILENAME_NETWORK_SUFFIX;
 
 	public static final String BLOCKCHAIN_FILENAME = "blockchain" + FILENAME_NETWORK_SUFFIX;
 
@@ -66,7 +66,8 @@ public class Constants
 	public static final long BLOCKCHAIN_STATE_BROADCAST_THROTTLE_MS = DateUtils.SECOND_IN_MILLIS;
 	public static final long BLOCKCHAIN_UPTODATE_THRESHOLD_MS = DateUtils.HOUR_IN_MILLIS;
 
-	public static final String CURRENCY_CODE_BITCOIN = "BTC";
+	public static final String CURRENCY_CODE_BTC = "BTC";
+	public static final String CURRENCY_CODE_MBTC = "mBTC";
 	public static final char CHAR_HAIR_SPACE = '\u200a';
 	public static final char CHAR_THIN_SPACE = '\u2009';
 	public static final char CHAR_ALMOST_EQUAL_TO = '\u2248';
@@ -77,26 +78,28 @@ public class Constants
 	public static final int ADDRESS_FORMAT_LINE_SIZE = 12;
 
 	public static final int BTC_MAX_PRECISION = 8;
+	public static final int MBTC_MAX_PRECISION = 5;
 	public static final int LOCAL_PRECISION = 4;
 
-	public static final String DONATION_ADDRESS = "1HkX6X8EakdsgAysL93oKrWiXGPbFiG1xV";
-	public static final String REPORT_EMAIL = "litecoinwallet@schildbach.de";
+	public static final String DONATION_ADDRESS = "LerikguvK4nTvhk5XUp8ofg2JgLqAGnBV3";
+	public static final String REPORT_EMAIL = "ralree@gmail.com";
 	public static final String REPORT_SUBJECT_ISSUE = "Reported issue";
 	public static final String REPORT_SUBJECT_CRASH = "Crash report";
 
 	public static final String LICENSE_URL = "http://www.gnu.org/licenses/gpl-3.0.txt";
-	public static final String SOURCE_URL = "https://github.com/schildbach/bitcoin-litecoinwallet";
-	public static final String BINARY_URL = "http://code.google.com/p/bitcoin-litecoinwallet/downloads/list";
-	public static final String CREDITS_BITCOINJ_URL = "http://code.google.com/p/bitcoinj/";
+	public static final String SOURCE_URL = "https://github.com/hank/litecoin-wallet-new";
+	public static final String BINARY_URL = "https://github.com/hank/litecoin-wallet-new";
+	public static final String CREDITS_BITCOINJ_URL = "http://github.com/hank/litecoinj-new";
 	public static final String CREDITS_ZXING_URL = "http://code.google.com/p/zxing/";
 	public static final String CREDITS_ICON_URL = "https://bitcointalk.org/index.php?action=profile;u=2062";
-	public static final String AUTHOR_TWITTER_URL = "https://twitter.com/#!/bitcoin_wallet";
-	public static final String AUTHOR_GOOGLEPLUS_URL = "https://profiles.google.com/andreas.schildbach";
+	public static final String AUTHOR_TWITTER_URL = "";
+	public static final String AUTHOR_GOOGLEPLUS_URL = "https://profiles.google.com/hardware.hank";
+	public static final String COMMUNITY_GOOGLEPLUS_URL = "https://plus.google.com/communities/105515929887248493912";
 	public static final String MARKET_APP_URL = "market://details?id=%s";
 	public static final String WEBMARKET_APP_URL = "https://play.google.com/store/apps/details?id=%s";
-	public static final String MARKET_PUBLISHER_URL = "market://search?q=pub:\"Andreas Schildbach\"";
+	public static final String MARKET_PUBLISHER_URL = "market://search?q=pub:\"Joint Security Area\"";
 
-	public static final String VERSION_URL = "http://litecoinwallet.schildbach.de/version";
+	public static final String VERSION_URL = "http://jointsecurityarea.org/litecoin-wallet/version";
 	public static final int HTTP_TIMEOUT_MS = 15 * (int) DateUtils.SECOND_IN_MILLIS;
 
 	public static final String PREFS_KEY_LAST_VERSION = "last_version";

@@ -66,15 +66,13 @@ import com.google.litecoin.core.Transaction.Purpose;
 import com.google.litecoin.core.TransactionConfidence.ConfidenceType;
 import com.google.litecoin.core.Wallet;
 
+import com.google.litecoin.script.Script;
 import de.schildbach.litecoinwallet.AddressBookProvider;
 import de.schildbach.litecoinwallet.Constants;
 import de.schildbach.litecoinwallet.R;
 import de.schildbach.litecoinwallet.WalletApplication;
-import de.schildbach.litecoinwallet.util.BitmapFragment;
-import de.schildbach.litecoinwallet.util.Nfc;
-import de.schildbach.litecoinwallet.util.Qr;
-import de.schildbach.litecoinwallet.util.ThrottelingWalletChangeListener;
-import de.schildbach.litecoinwallet.util.WalletUtils;
+import de.schildbach.litecoinwallet.util.*;
+
 
 /**
  * @author Andreas Schildbach
@@ -246,7 +244,7 @@ public class TransactionsListFragment extends SherlockListFragment implements Lo
 					final BigInteger value = tx.getValue(wallet);
 					final boolean sent = value.signum() < 0;
 
-					address = sent ? WalletUtils.getToAddress(tx) : WalletUtils.getFromAddress(tx);
+					address = sent ? WalletUtils.getFirstToAddress(tx) : WalletUtils.getFirstFromAddress(tx);
 
 					final String label;
 					if (tx.isCoinBase())
@@ -354,14 +352,19 @@ public class TransactionsListFragment extends SherlockListFragment implements Lo
 		// don't clear the adapter, because it will confuse users
 	}
 
-	private final ThrottelingWalletChangeListener transactionChangeListener = new ThrottelingWalletChangeListener(THROTTLE_MS)
+	private final ThrottlingWalletChangeListener transactionChangeListener = new ThrottlingWalletChangeListener(THROTTLE_MS)
 	{
 		@Override
-		public void onThrotteledWalletChanged()
+		public void onThrottledWalletChanged()
 		{
 			adapter.notifyDataSetChanged();
 		}
-	};
+
+        @Override
+        public void onScriptsAdded(Wallet wallet, List<Script> scripts) {
+            // TODO: Possibly do something here
+        }
+    };
 
 	private static class TransactionsLoader extends AsyncTaskLoader<List<Transaction>>
 	{
@@ -422,15 +425,20 @@ public class TransactionsListFragment extends SherlockListFragment implements Lo
 			return filteredTransactions;
 		}
 
-		private final ThrottelingWalletChangeListener transactionAddRemoveListener = new ThrottelingWalletChangeListener(THROTTLE_MS, true, true,
+		private final ThrottlingWalletChangeListener transactionAddRemoveListener = new ThrottlingWalletChangeListener(THROTTLE_MS, true, true,
 				false)
 		{
 			@Override
-			public void onThrotteledWalletChanged()
+			public void onThrottledWalletChanged()
 			{
 				forceLoad();
 			}
-		};
+
+            @Override
+            public void onScriptsAdded(Wallet wallet, List<Script> scripts) {
+                // TODO: Possibly do something here
+            }
+        };
 
 		private static final Comparator<Transaction> TRANSACTION_COMPARATOR = new Comparator<Transaction>()
 		{
@@ -467,8 +475,11 @@ public class TransactionsListFragment extends SherlockListFragment implements Lo
 
 	private void updateView()
 	{
-		adapter.setPrecision(Integer.parseInt(prefs.getString(Constants.PREFS_KEY_BTC_PRECISION, Constants.PREFS_DEFAULT_BTC_PRECISION)));
+		final String precision = prefs.getString(Constants.PREFS_KEY_BTC_PRECISION, Constants.PREFS_DEFAULT_BTC_PRECISION);
+		final int btcPrecision = precision.charAt(0) - '0';
+		final int btcShift = precision.length() == 3 ? precision.charAt(2) - '0' : 0;
 
+		adapter.setPrecision(btcPrecision, btcShift);
 		adapter.clearLabelCache();
 	}
 }

@@ -143,7 +143,7 @@ public class WalletUtils
 	}
 
 	@CheckForNull
-	public static Address getFromAddress(@Nonnull final Transaction tx)
+	public static Address getFirstFromAddress(@Nonnull final Transaction tx)
 	{
 		if (tx.isCoinBase())
 			return null;
@@ -165,7 +165,7 @@ public class WalletUtils
 	}
 
 	@CheckForNull
-	public static Address getToAddress(@Nonnull final Transaction tx)
+	public static Address getFirstToAddress(@Nonnull final Transaction tx)
 	{
 		try
 		{
@@ -210,7 +210,7 @@ public class WalletUtils
 	{
 		final DateFormat format = Iso8601Format.newDateTimeFormatT();
 
-		out.write("# KEEP YOUR PRIVATE KEYS SAFE! Anyone who can read this can spend your Bitcoins.\n");
+		out.write("# KEEP YOUR PRIVATE KEYS SAFE! Anyone who can read this can spend your Litecoins.\n");
 
 		for (final ECKey key : keys)
 		{

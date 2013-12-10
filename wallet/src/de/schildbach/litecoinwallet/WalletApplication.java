@@ -41,14 +41,11 @@ import android.app.ActivityManager;
 import android.app.ActivityManager.RunningServiceInfo;
 import android.app.Application;
 import android.app.Service;
-import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
-import android.content.ServiceConnection;
 import android.content.SharedPreferences;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager.NameNotFoundException;
-import android.os.IBinder;
 import android.os.StrictMode;
 import android.preference.PreferenceManager;
 import android.text.format.DateUtils;
@@ -128,7 +125,7 @@ public class WalletApplication extends Application
 			@Override
 			public void uncaughtException(final Thread thread, final Throwable throwable)
 			{
-				log.info("bitcoinj uncaught exception", throwable);
+				log.info("litecoinj uncaught exception", throwable);
 				CrashReporter.saveBackgroundTrace(throwable, packageInfo);
 			}
 		};
@@ -150,6 +147,11 @@ public class WalletApplication extends Application
 
 		final int lastVersionCode = prefs.getInt(Constants.PREFS_KEY_LAST_VERSION, 0);
 		prefs.edit().putInt(Constants.PREFS_KEY_LAST_VERSION, packageInfo.versionCode).commit();
+
+		if (packageInfo.versionCode > lastVersionCode)
+			log.info("detected app upgrade: " + lastVersionCode + " -> " + packageInfo.versionCode);
+		else if (packageInfo.versionCode < lastVersionCode)
+			log.warn("detected app downgrade: " + lastVersionCode + " -> " + packageInfo.versionCode);
 
 		if (lastVersionCode > 0 && lastVersionCode < KEY_ROTATION_VERSION_CODE && packageInfo.versionCode >= KEY_ROTATION_VERSION_CODE)
 		{
@@ -485,24 +487,9 @@ public class WalletApplication extends Application
 
 	public void broadcastTransaction(@Nonnull final Transaction tx)
 	{
-		startBlockchainService(false); // make sure service will run for a while
-
-		bindService(new Intent(this, BlockchainServiceImpl.class), new ServiceConnection()
-		{
-			@Override
-			public void onServiceConnected(final ComponentName name, final IBinder binder)
-			{
-				final BlockchainService blockchainService = ((BlockchainServiceImpl.LocalBinder) binder).getService();
-
-				blockchainService.broadcastTransaction(tx);
-			}
-
-			@Override
-			public void onServiceDisconnected(final ComponentName name)
-			{
-				unbindService(this);
-			}
-		}, Context.BIND_AUTO_CREATE);
+		final Intent intent = new Intent(BlockchainService.ACTION_BROADCAST_TRANSACTION, null, this, BlockchainServiceImpl.class);
+		intent.putExtra(BlockchainService.ACTION_BROADCAST_TRANSACTION_HASH, tx.getHash().getBytes());
+		startService(intent);
 	}
 
 	public boolean isServiceRunning(final Class<? extends Service> serviceClass)

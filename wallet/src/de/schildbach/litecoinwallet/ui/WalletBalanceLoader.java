@@ -18,6 +18,7 @@
 package de.schildbach.litecoinwallet.ui;
 
 import java.math.BigInteger;
+import java.util.List;
 
 import javax.annotation.Nonnull;
 
@@ -27,7 +28,8 @@ import android.support.v4.content.AsyncTaskLoader;
 import com.google.litecoin.core.Wallet;
 import com.google.litecoin.core.Wallet.BalanceType;
 
-import de.schildbach.litecoinwallet.util.ThrottelingWalletChangeListener;
+import com.google.litecoin.script.Script;
+import de.schildbach.litecoinwallet.util.ThrottlingWalletChangeListener;
 
 /**
  * @author Andreas Schildbach
@@ -68,12 +70,17 @@ public final class WalletBalanceLoader extends AsyncTaskLoader<BigInteger>
 		return wallet.getBalance(BalanceType.ESTIMATED);
 	}
 
-	private final ThrottelingWalletChangeListener walletChangeListener = new ThrottelingWalletChangeListener()
+	private final ThrottlingWalletChangeListener walletChangeListener = new ThrottlingWalletChangeListener()
 	{
 		@Override
-		public void onThrotteledWalletChanged()
+		public void onThrottledWalletChanged()
 		{
 			forceLoad();
 		}
-	};
+
+        @Override
+        public void onScriptsAdded(Wallet wallet, List<Script> scripts) {
+            // TODO: Possibly do something here.
+        }
+    };
 }

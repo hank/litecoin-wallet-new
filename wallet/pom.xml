@@ -6,8 +6,8 @@
 
 	<artifactId>wallet</artifactId>
 	<packaging>apk</packaging>
-	<version>3.22-test</version>
-	<name>Bitcoin Wallet</name>
+	<version>3.28-test</version>
+	<name>Litecoin Wallet</name>
 
 	<parent>
 		<groupId>de.schildbach.wallet</groupId>
