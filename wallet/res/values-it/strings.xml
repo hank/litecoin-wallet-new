@@ -58,7 +58,7 @@
 	<string name="send_coins_fragment_receiving_address_error_cross_network">Non puoi usare l\'indirizzo %s con questo portafoglio!</string>
 	<string name="send_coins_fragment_receiving_address_error_cross_network_unknown">Non puoi usare l\'indirizzo di una rete sconosciuta con questo portafoglio!</string>
 	<string name="send_coins_fragment_available_label">Disponibili</string>
-	<string name="send_coins_fragment_pending">(%s BTC in attesa di conferma)</string>
+	<string name="send_coins_fragment_pending">(%s LTC in attesa di conferma)</string>
 	<string name="send_coins_fragment_amount_label">Importo da pagare</string>
 	<string name="send_coins_fragment_amount_empty">Metti la quantità qui</string>
 	<string name="send_coins_fragment_amount_error">Quantità non valida!</string>
@@ -111,7 +111,7 @@
 	<string name="transaction_row_message_received_dust">Questo piccolo importo probabilmente non sarà mai speso economicamente.</string>
 	<string name="amount_calculator_dialog_title">Calcolatore di valuta</string>
 	<string name="amount_calculator_dialog_button_use">Usa</string>
-	<string name="amount_calculator_dialog_exchange_rate">BTC 1 è valevole circa %1$s %2$s\nValore prelevato da %3$s</string>
+	<string name="amount_calculator_dialog_exchange_rate">LTC 1 è valevole circa %1$s %2$s\nValore prelevato da %3$s</string>
 	<string name="amount_calculator_dialog_exchange_rate_not_available">Tasso di cambio non disponibile.</string>
 	<string name="network_monitor_activity_title">Controllo della Rete</string>
 	<string name="network_monitor_peer_list_title">Peer</string>
@@ -207,7 +207,7 @@
 	<string name="button_send_coins">Invia Litecoins</string>
 	<string name="button_scan">Analizza</string>
 	<string name="button_edit_address">Aggiungi/modifica indirizzo</string>
-	<string name="action_open_blockexplorer">Aperto in blockexplorer.com</string>
+	<string name="action_open_blockexplorer">Aperto in Litecoin Explorer</string>
 	<string name="time_today">oggi</string>
 	<string name="address_unlabeled">(non etichettato)</string>
 

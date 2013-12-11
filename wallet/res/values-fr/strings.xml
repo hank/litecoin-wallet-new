@@ -55,7 +55,7 @@
 	<string name="send_coins_fragment_receiving_address_error_cross_network">Impossible d\'utiliser l\'adresse %s avec ce porte-monnaie&#x202F;!</string>
 	<string name="send_coins_fragment_receiving_address_error_cross_network_unknown">Impossible d\'utiliser l\'adresse d\'un réseau inconnu avec ce porte-monnaie&#x202F;!</string>
 	<string name="send_coins_fragment_available_label">Montant disponible</string>
-	<string name="send_coins_fragment_pending">(BTC %s en attente de confirmation)</string>
+	<string name="send_coins_fragment_pending">(LTC %s en attente de confirmation)</string>
 	<string name="send_coins_fragment_amount_label">Montant à payer</string>
 	<string name="send_coins_fragment_amount_empty">Entrez le montant ici</string>
 	<string name="send_coins_fragment_amount_error">Montant invalide&#x202F;!</string>
@@ -101,7 +101,7 @@
 	<string name="transaction_row_message_received_dust">Ce petit montant ne pourra probablement jamais être dépensé d\'un point de vue économique.</string>
 	<string name="amount_calculator_dialog_title">Convertisseur de devises</string>
 	<string name="amount_calculator_dialog_button_use">Utiliser</string>
-	<string name="amount_calculator_dialog_exchange_rate">1 BTC a une valeur approximative de %1$s %2$s\nPrix chargé depuis %3$s</string>
+	<string name="amount_calculator_dialog_exchange_rate">1 LTC a une valeur approximative de %1$s %2$s\nPrix chargé depuis %3$s</string>
 	<string name="amount_calculator_dialog_exchange_rate_not_available">Taux de change non disponible.</string>
 	<string name="network_monitor_activity_title">État du Réseau</string>
 	<string name="network_monitor_peer_list_title">Pairs</string>

@@ -75,7 +75,7 @@
 	<string name="send_coins_fragment_receiving_address_error_cross_network">¡No se puede usar la dirección %s con esta cartera!</string>
 	<string name="send_coins_fragment_receiving_address_error_cross_network_unknown">¡No se puede usar una dirección de red desconocida con esta cartera!</string>
 	<string name="send_coins_fragment_available_label">Disponible para gastar</string>
-	<string name="send_coins_fragment_pending">(BTC %s esperando confirmación)</string>
+	<string name="send_coins_fragment_pending">(LTC %s esperando confirmación)</string>
 	<string name="send_coins_fragment_amount_label">Cantidad a pagar</string>
 	<string name="send_coins_fragment_amount_empty">Introduce cantidad aquí</string>
 	<string name="send_coins_fragment_amount_error">¡Cantidad inválida!</string>
@@ -120,7 +120,7 @@
 	<string name="transaction_row_message_received_dead">Este pago ha sido revocado por el emisor.</string>
 	<string name="amount_calculator_dialog_title">Calculadora de moneda</string>
 	<string name="amount_calculator_dialog_button_use">Uso</string>
-	<string name="amount_calculator_dialog_exchange_rate">1 BTC tiene un valor de %1$s %2$s\nValor obtenido de %3$s</string>
+	<string name="amount_calculator_dialog_exchange_rate">1 LTC tiene un valor de %1$s %2$s\nValor obtenido de %3$s</string>
 	<string name="amount_calculator_dialog_exchange_rate_not_available">Tasa de cambio no disponible.</string>
 	<string name="network_monitor_peer_list_title">Pares</string>
 	<string name="network_monitor_block_list_title">Bloques</string>
@@ -157,7 +157,7 @@
 	<string name="report_issue_dialog_mail_intent_chooser">Enviar reporte utilizando…</string>
 	<string name="about_title">Acerca de</string>
 	<string name="about_license_title">Licencia</string>
-	<string name="about_credits_Litecoinj_title">Esta aplicación utiliza Litecoinj %s</string>
+	<string name="about_credits_litecoinj_title">Esta aplicación utiliza Litecoinj %s</string>
 	<string name="about_credits_zxing_title">Esta aplicación utiliza \'zxing\'</string>
 	<string name="about_credits_icon_title">Esta aplicación utiliza un icono de \'bitboy\'</string>
 	<string name="about_author_twitter_title">El autor en Twitter</string>

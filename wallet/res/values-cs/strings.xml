@@ -27,7 +27,7 @@
 	<string name="send_coins_fragment_receiving_address_hint">napište adresu či jméno</string>
 	<string name="send_coins_fragment_receiving_address_error">Nesprávná Litecoin Adresa!</string>
 	<string name="send_coins_fragment_available_label">Možno utratit</string>
-	<string name="send_coins_fragment_pending">(BTC %s čeká na potvrzení)</string>
+	<string name="send_coins_fragment_pending">(LTC %s čeká na potvrzení)</string>
 	<string name="send_coins_fragment_amount_label">Částka k zaplacení</string>
 	<string name="send_coins_fragment_button_send">Poslat</string>
 	<string name="send_coins_sending_msg">Posílám…</string>
@@ -56,7 +56,7 @@
 
 	<string name="about_title">O aplikaci</string>
 	<string name="about_license_title">Licence</string>
-	<string name="about_credits_Litecoinj_title">Aplikace používá Litecoinj %s</string>
+	<string name="about_credits_litecoinj_title">Aplikace používá Litecoinj %s</string>
 	<string name="about_credits_zxing_title">"Aplikace používá 'zxing'"</string>
 	<string name="about_credits_icon_title">"Aplikace používá ikonu od 'bitboy'"</string>
 	<string name="about_author_twitter_title">Autor na Twitteru</string>

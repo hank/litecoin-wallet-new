@@ -55,7 +55,7 @@
 	<string name="send_coins_fragment_receiving_address_error_cross_network">Não é possível usar o endereço %s com esta carteira!</string>
 	<string name="send_coins_fragment_receiving_address_error_cross_network_unknown">Não é possível usar um endereço de rede desconhecido com esta carteira!</string>
 	<string name="send_coins_fragment_available_label">Disponível para gastar</string>
-	<string name="send_coins_fragment_pending">(%s BTC esperando confirmação)</string>
+	<string name="send_coins_fragment_pending">(%s LTC esperando confirmação)</string>
 	<string name="send_coins_fragment_amount_label">Quantidade a pagar</string>
 	<string name="send_coins_fragment_amount_empty">Insira a quantidade aqui</string>
 	<string name="send_coins_fragment_amount_error">Quantidade inválida!</string>
@@ -101,7 +101,7 @@
 	<string name="transaction_row_message_received_dust">Esta pequena quantidade pode provavelmente nunca ser gasto economicamente.</string>
 	<string name="amount_calculator_dialog_title">Calculadora de moeda</string>
 	<string name="amount_calculator_dialog_button_use">Uso</string>
-	<string name="amount_calculator_dialog_exchange_rate">1 BTC vale em torno de %1$s %2$s\nPreço obtido de %3$s</string>
+	<string name="amount_calculator_dialog_exchange_rate">1 LTC vale em torno de %1$s %2$s\nPreço obtido de %3$s</string>
 	<string name="amount_calculator_dialog_exchange_rate_not_available">Taxa de câmbio indisponível.</string>
 	<string name="network_monitor_activity_title">Monitor de Rede</string>
 	<string name="network_monitor_peer_list_title">Pares</string>
@@ -189,8 +189,8 @@
 	<string name="button_paste">Colar</string>
 	<string name="button_share">Compartilhar</string>
 	<string name="button_set_as_default">Definir como padrão</string>
-	<string name="button_request_coins">Solicitar BTC</string>
-	<string name="button_send_coins">Enviar BTC</string>
+	<string name="button_request_coins">Solicitar LTC</string>
+	<string name="button_send_coins">Enviar LTC</string>
 	<string name="button_scan">Escanear</string>
 	<string name="button_edit_address">Adicionar/editar endereço</string>
 	<string name="time_today">hoje</string>

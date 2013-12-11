@@ -58,7 +58,7 @@
 	<string name="send_coins_fragment_receiving_address_error_cross_network">Невозможно использовать адрес %s с этим бумажником!</string>
 	<string name="send_coins_fragment_receiving_address_error_cross_network_unknown">Невозможно использовать адрес неизвестной сети с этим бумажником</string>
 	<string name="send_coins_fragment_available_label">Доступно для отправки</string>
-	<string name="send_coins_fragment_pending">(BTC %s ожидают подтверждения)</string>
+	<string name="send_coins_fragment_pending">(LTC %s ожидают подтверждения)</string>
 	<string name="send_coins_fragment_amount_label">Величина оплаты</string>
 	<string name="send_coins_fragment_amount_empty">Введите сумму</string>
 	<string name="send_coins_fragment_amount_error">Неверная сумма!</string>
@@ -111,7 +111,7 @@
 	<string name="transaction_row_message_received_dust">Столь малая сумма, скорее всего, никогда не будет потрачена экономически.</string>
 	<string name="amount_calculator_dialog_title">Калькулятор валют</string>
 	<string name="amount_calculator_dialog_button_use">Использовать</string>
-	<string name="amount_calculator_dialog_exchange_rate">BTC 1 стоит примерно %1$s %2$s\nЦена получена с %3$s</string>
+	<string name="amount_calculator_dialog_exchange_rate">LTC 1 стоит примерно %1$s %2$s\nЦена получена с %3$s</string>
 	<string name="amount_calculator_dialog_exchange_rate_not_available">Обменный курс недоступен</string>
 	<string name="network_monitor_activity_title">Сетевой монитор</string>
 	<string name="network_monitor_peer_list_title">Узлы</string>
@@ -209,7 +209,7 @@
 	<string name="button_send_coins">Отправить монеты</string>
 	<string name="button_scan">Сканировать</string>
 	<string name="button_edit_address">Добавить/изменить адрес</string>
-	<string name="action_open_blockexplorer">Открыть в blockexplorer.com</string>
+	<string name="action_open_blockexplorer">Открыть в Litecoin Explorer</string>
 	<string name="time_today">сегодня</string>
 	<string name="address_unlabeled">(без метки)</string>
 

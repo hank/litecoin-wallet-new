@@ -28,6 +28,9 @@ import android.os.Bundle;
 import com.google.litecoin.core.Address;
 import com.google.litecoin.core.Transaction;
 
+import com.google.zxing.integration.android.IntentIntegrator;
+import com.google.zxing.integration.android.IntentIntegratorSupportV4;
+import com.google.zxing.integration.android.IntentResult;
 import de.schildbach.litecoinwallet.ui.InputParser.StringInputParser;
 
 /**
@@ -42,16 +45,18 @@ public final class SendCoinsQrActivity extends AbstractOnDemandServiceActivity
 	{
 		super.onCreate(savedInstanceState);
 
-		startActivityForResult(new Intent(this, ScanActivity.class), REQUEST_CODE_SCAN);
+		//startActivityForResult(new Intent(this, ScanActivity.class), REQUEST_CODE_SCAN);
+        IntentIntegrator integratorSupportV4 = new IntentIntegrator(this);
 	}
 
 	@Override
 	public void onActivityResult(final int requestCode, final int resultCode, final Intent intent)
 	{
-		if (requestCode == REQUEST_CODE_SCAN && resultCode == Activity.RESULT_OK)
-		{
-			final String input = intent.getStringExtra(ScanActivity.INTENT_EXTRA_RESULT);
+        IntentResult result = IntentIntegrator.parseActivityResult(requestCode, resultCode, intent);
 
+		if (result != null)
+		{
+			final String input = result.getContents();
 			new StringInputParser(input)
 			{
 				@Override

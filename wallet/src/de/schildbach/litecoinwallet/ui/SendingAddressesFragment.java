@@ -36,6 +36,7 @@ import android.support.v4.content.Loader;
 import android.support.v4.widget.SimpleCursorAdapter;
 import android.support.v4.widget.SimpleCursorAdapter.ViewBinder;
 import android.text.ClipboardManager;
+import android.util.Log;
 import android.view.View;
 import android.widget.ListView;
 import android.widget.TextView;
@@ -49,6 +50,8 @@ import com.google.litecoin.core.Address;
 import com.google.litecoin.core.Transaction;
 import com.google.litecoin.uri.BitcoinURI;
 
+import com.google.zxing.integration.android.IntentIntegratorSupportV4;
+import com.google.zxing.integration.android.IntentResult;
 import de.schildbach.litecoinwallet.AddressBookProvider;
 import de.schildbach.litecoinwallet.Constants;
 import de.schildbach.litecoinwallet.R;
@@ -72,8 +75,9 @@ public final class SendingAddressesFragment extends SherlockListFragment impleme
 	private final Handler handler = new Handler();
 
 	private static final int REQUEST_CODE_SCAN = 0;
+    private Address addressToAdd;
 
-	@Override
+    @Override
 	public void onAttach(final Activity activity)
 	{
 		super.onAttach(activity);
@@ -119,27 +123,35 @@ public final class SendingAddressesFragment extends SherlockListFragment impleme
 		loaderManager.initLoader(0, null, this);
 	}
 
+    @Override
+    public void onResume() {
+        super.onResume();
+        if(null != this.addressToAdd)
+        {
+            final Address address = this.addressToAdd;
+            // Starting address to add dialog
+            EditAddressBookEntryFragment.edit(getFragmentManager(), address.toString());
+            this.addressToAdd = null;
+        }
+    }
+
 	@Override
 	public void onActivityResult(final int requestCode, final int resultCode, final Intent intent)
 	{
-		if (requestCode == REQUEST_CODE_SCAN && resultCode == Activity.RESULT_OK)
-		{
-			final String input = intent.getStringExtra(ScanActivity.INTENT_EXTRA_RESULT);
+        Log.i(this.getClass().toString(), "onActivityResult called");
+        IntentResult result = IntentIntegratorSupportV4.parseActivityResult(requestCode, resultCode, intent);
 
+		if (result != null)
+		{
+			final String input = result.getContents();
+            Log.i(this.getClass().toString(), "input: " + input);
 			new StringInputParser(input)
 			{
 				@Override
 				protected void bitcoinRequest(final Address address, final String addressLabel, final BigInteger amount, final String bluetoothMac)
 				{
-					// workaround for "IllegalStateException: Can not perform this action after onSaveInstanceState"
-					handler.postDelayed(new Runnable()
-					{
-						@Override
-						public void run()
-						{
-							EditAddressBookEntryFragment.edit(getFragmentManager(), address.toString());
-						}
-					}, 500);
+                    Log.i(this.getClass().toString(), "Adding Address: " + address.toString());
+					SendingAddressesFragment.this.addressToAdd = address;
 				}
 
 				@Override
@@ -221,7 +233,9 @@ public final class SendingAddressesFragment extends SherlockListFragment impleme
 
 	private void handleScan()
 	{
-		startActivityForResult(new Intent(activity, ScanActivity.class), REQUEST_CODE_SCAN);
+		//startActivityForResult(new Intent(activity, ScanActivity.class), REQUEST_CODE_SCAN);
+        IntentIntegratorSupportV4 integratorSupportV4 = new IntentIntegratorSupportV4(this);
+        integratorSupportV4.initiateScan();
 	}
 
 	@Override

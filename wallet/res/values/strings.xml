@@ -58,7 +58,7 @@
 	<string name="send_coins_fragment_receiving_address_error_cross_network">Cannot use %s address with this wallet!</string>
 	<string name="send_coins_fragment_receiving_address_error_cross_network_unknown">Cannot use address of unknown network with this wallet!</string>
 	<string name="send_coins_fragment_available_label">Available for spending</string>
-	<string name="send_coins_fragment_pending">(BTC %s waiting for confirmation)</string>
+	<string name="send_coins_fragment_pending">(LTC %s waiting for confirmation)</string>
 	<string name="send_coins_fragment_amount_label">Amount to pay</string>
 	<string name="send_coins_fragment_amount_empty">Put amount here</string>
 	<string name="send_coins_fragment_amount_error">Invalid amount!</string>
@@ -111,7 +111,7 @@
 	<string name="transaction_row_message_received_dust">This small amount can probably never be spent economically.</string>
 	<string name="amount_calculator_dialog_title">Currency calculator</string>
 	<string name="amount_calculator_dialog_button_use">Use</string>
-	<string name="amount_calculator_dialog_exchange_rate">BTC 1 is worth about %1$s %2$s\nPrice fetched from %3$s</string>
+	<string name="amount_calculator_dialog_exchange_rate">LTC 1 is worth about %1$s %2$s\nPrice fetched from %3$s</string>
 	<string name="amount_calculator_dialog_exchange_rate_not_available">Exchange rate not available.</string>
 	<string name="network_monitor_activity_title">Network Monitor</string>
 	<string name="network_monitor_peer_list_title">Peers</string>
@@ -186,7 +186,7 @@
 	<string name="report_issue_dialog_mail_intent_chooser">Send report using…</string>
 	<string name="about_title">About</string>
 	<string name="about_license_title">License</string>
-	<string name="about_credits_Litecoinj_title">This app is using Litecoinj %s</string>
+	<string name="about_credits_litecoinj_title">This app is using Litecoinj %s</string>
 	<string name="about_credits_zxing_title">"This app is using 'zxing'"</string>
 	<string name="about_credits_icon_title">"This app is using an icon by 'bitboy'"</string>
 	<string name="about_community_googleplus_title">Google+ Community</string>
@@ -215,7 +215,7 @@
 	<string name="button_send_coins">Send coins</string>
 	<string name="button_scan">Scan</string>
 	<string name="button_edit_address">Add/edit address</string>
-	<string name="action_open_blockexplorer">Open in blockexplorer.com</string>
+	<string name="action_open_blockexplorer">Open in Litecoin Explorer</string>
 	<string name="time_today">today</string>
 	<string name="address_unlabeled">(unlabeled)</string>
 

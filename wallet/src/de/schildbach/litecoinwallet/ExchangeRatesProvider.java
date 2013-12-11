@@ -86,15 +86,15 @@ public class ExchangeRatesProvider extends ContentProvider
 
 	private static final URL BTCE_URL;
 	private static final String[] BTCE_FIELDS = new String[] { "avg" };
-	private static final URL CRYPTSY_URL;
-	private static final String[] CRYPTSY_FIELDS = new String[] { "lasttradeprice" };
+	private static final URL VIRCUREX_URL;
+	private static final String[] VIRCUREX_FIELDS = new String[] { "value" };
 
 	static
 	{
 		try
 		{
-			BTCE_URL = new URL("https://btc-e.com/api/2/ltc_btc/ticker");
-            CRYPTSY_URL = new URL("http://pubapi.cryptsy.com/api.php?method=singlemarketdata&marketid=3");
+			BTCE_URL = new URL("https://btc-e.com/api/2/ltc_usd/ticker");
+            VIRCUREX_URL = new URL("https://vircurex.com/api/get_last_trade.json?base=LTC&alt=USD");
 		}
 		catch (final MalformedURLException x)
 		{
@@ -128,7 +128,7 @@ public class ExchangeRatesProvider extends ContentProvider
 			if (exchangeRates == null && newExchangeRates == null)
 				newExchangeRates = requestExchangeRates(BTCE_URL, BTCE_FIELDS);
 			if (exchangeRates == null && newExchangeRates == null)
-				newExchangeRates = requestExchangeRates(CRYPTSY_URL, CRYPTSY_FIELDS);
+				newExchangeRates = requestExchangeRates(VIRCUREX_URL, VIRCUREX_FIELDS);
 
 			if (newExchangeRates != null)
 			{

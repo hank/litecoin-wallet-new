@@ -64,7 +64,7 @@
 	<string name="send_coins_fragment_receiving_address_error_cross_network">Kann %s-Adresse mit dieser Wallet nicht nutzen!</string>
 	<string name="send_coins_fragment_receiving_address_error_cross_network_unknown">Kann Adresse von unbekanntem Netzwerk mit dieser Wallet nicht nutzen!</string>
 	<string name="send_coins_fragment_available_label">Verfügbar</string>
-	<string name="send_coins_fragment_pending">(BTC %s warten auf Bestätigung)</string>
+	<string name="send_coins_fragment_pending">(LTC %s warten auf Bestätigung)</string>
 	<string name="send_coins_fragment_amount_label">Betrag</string>
 	<string name="send_coins_fragment_amount_empty">Ergänze Betrag hier</string>
 	<string name="send_coins_fragment_amount_error">Ungültiger Betrag!</string>
@@ -122,7 +122,7 @@
 
 	<string name="amount_calculator_dialog_title">Währungs-Umrechner</string>
 	<string name="amount_calculator_dialog_button_use">Übernehmen</string>
-	<string name="amount_calculator_dialog_exchange_rate">BTC 1 ist etwa %1$s %2$s wert\nKurs von %3$s abgerufen</string>
+	<string name="amount_calculator_dialog_exchange_rate">LTC 1 ist etwa %1$s %2$s wert\nKurs von %3$s abgerufen</string>
 	<string name="amount_calculator_dialog_exchange_rate_not_available">Umrechnungskurs nicht verfügbar.</string>
 
 	<string name="network_monitor_activity_title">Netzwerk-Monitor</string>
@@ -201,7 +201,7 @@
 
 	<string name="about_title">Über</string>
 	<string name="about_license_title">Lizenz</string>
-	<string name="about_credits_Litecoinj_title">Diese App nutzt Litecoinj %s</string>
+	<string name="about_credits_litecoinj_title">Diese App nutzt Litecoinj %s</string>
 	<string name="about_credits_zxing_title">"Diese App nutzt 'zxing'"</string>
 	<string name="about_credits_icon_title">"Diese App nutzt ein Icon von 'bitboy'"</string>
 	<string name="about_community_googleplus_title">Google+ Community</string>
@@ -227,12 +227,12 @@
 	<string name="button_paste">Einfügen</string>
 	<string name="button_share">Teilen</string>
 	<string name="button_set_as_default">Als Standard setzen</string>
-	<string name="button_request_coins">BTC anfordern</string>
-	<string name="button_send_coins">BTC senden</string>
+	<string name="button_request_coins">LTC anfordern</string>
+	<string name="button_send_coins">LTC senden</string>
 	<string name="button_scan">Scannen</string>
 	<string name="button_edit_address">Adresse hinzufügen/ändern</string>
 
-	<string name="action_open_blockexplorer">In blockexplorer.com öffnen</string>
+	<string name="action_open_blockexplorer">In Litecoin Explorer öffnen</string>
 
 	<string name="time_today">heute</string>
 	<string name="address_unlabeled">(unbenannt)</string>

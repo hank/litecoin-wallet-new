@@ -41,7 +41,6 @@ import com.google.litecoin.uri.BitcoinURIParseException;
 
 import de.schildbach.litecoinwallet.Constants;
 import de.schildbach.litecoinwallet.util.Bluetooth;
-import de.schildbach.litecoinwallet.util.Qr;
 import de.schildbach.litecoinwallet.R;
 
 /**
@@ -61,7 +60,7 @@ public abstract class InputParser
 		@Override
 		public void parse()
 		{
-			if (input.startsWith("bitcoin:"))
+			if (input.startsWith("litecoin:"))
 			{
 				try
 				{
@@ -103,23 +102,6 @@ public abstract class InputParser
 				catch (final AddressFormatException x)
 				{
 					error(R.string.input_parser_invalid_address);
-				}
-			}
-			else if (PATTERN_TRANSACTION.matcher(input).matches())
-			{
-				try
-				{
-					final Transaction tx = new Transaction(Constants.NETWORK_PARAMETERS, Qr.decodeBinary(input));
-
-					directTransaction(tx);
-				}
-				catch (final IOException x)
-				{
-					error(R.string.input_parser_invalid_transaction, x.getMessage());
-				}
-				catch (final ProtocolException x)
-				{
-					error(R.string.input_parser_invalid_transaction, x.getMessage());
 				}
 			}
 			else

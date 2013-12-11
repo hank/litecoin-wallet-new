@@ -52,8 +52,8 @@ public class Constants
 
 	public static final String CHECKPOINTS_FILENAME = "checkpoints" + FILENAME_NETWORK_SUFFIX;
 
-	private static final String BLOCKEXPLORER_BASE_URL_PROD = "https://blockexplorer.com/";
-	private static final String BLOCKEXPLORER_BASE_URL_TEST = "https://blockexplorer.com/testnet/";
+	private static final String BLOCKEXPLORER_BASE_URL_PROD = "http://explorer.litecoin.net/";
+	private static final String BLOCKEXPLORER_BASE_URL_TEST = "http://explorer.litecoin.net/";
 	public static final String BLOCKEXPLORER_BASE_URL = NETWORK_PARAMETERS.getId().equals(NetworkParameters.ID_MAINNET) ? BLOCKEXPLORER_BASE_URL_PROD
 			: BLOCKEXPLORER_BASE_URL_TEST;
 
@@ -66,8 +66,8 @@ public class Constants
 	public static final long BLOCKCHAIN_STATE_BROADCAST_THROTTLE_MS = DateUtils.SECOND_IN_MILLIS;
 	public static final long BLOCKCHAIN_UPTODATE_THRESHOLD_MS = DateUtils.HOUR_IN_MILLIS;
 
-	public static final String CURRENCY_CODE_BTC = "BTC";
-	public static final String CURRENCY_CODE_MBTC = "mBTC";
+	public static final String CURRENCY_CODE_BTC = "LTC";
+	public static final String CURRENCY_CODE_MBTC = "mLTC";
 	public static final char CHAR_HAIR_SPACE = '\u200a';
 	public static final char CHAR_THIN_SPACE = '\u2009';
 	public static final char CHAR_ALMOST_EQUAL_TO = '\u2248';

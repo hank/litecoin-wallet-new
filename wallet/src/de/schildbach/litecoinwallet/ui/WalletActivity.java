@@ -42,6 +42,8 @@ import java.util.TimeZone;
 
 import javax.annotation.Nonnull;
 
+import com.google.zxing.integration.android.IntentIntegrator;
+import com.google.zxing.integration.android.IntentResult;
 import de.schildbach.litecoinwallet.R;
 
 import android.app.Activity;
@@ -174,9 +176,11 @@ public final class WalletActivity extends AbstractOnDemandServiceActivity
 	@Override
 	public void onActivityResult(final int requestCode, final int resultCode, final Intent intent)
 	{
-		if (requestCode == REQUEST_CODE_SCAN && resultCode == Activity.RESULT_OK)
+        IntentResult result = IntentIntegrator.parseActivityResult(requestCode, resultCode, intent);
+
+		if (result != null)
 		{
-			final String input = intent.getStringExtra(ScanActivity.INTENT_EXTRA_RESULT);
+			final String input = result.getContents();
 
 			new StringInputParser(input)
 			{
@@ -306,7 +310,9 @@ public final class WalletActivity extends AbstractOnDemandServiceActivity
 
 	public void handleScan()
 	{
-		startActivityForResult(new Intent(this, ScanActivity.class), REQUEST_CODE_SCAN);
+		//startActivityForResult(new Intent(this, ScanActivity.class), REQUEST_CODE_SCAN);
+        IntentIntegrator integrator = new IntentIntegrator(this);
+        integrator.initiateScan();
 	}
 
 	public void handleExportKeys()

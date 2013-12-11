@@ -55,7 +55,7 @@
 	<string name="send_coins_fragment_receiving_address_error_cross_network">Không thể sử dụng địa chỉ %s với ví tiền này!</string>
 	<string name="send_coins_fragment_receiving_address_error_cross_network_unknown">Không thể sử dụng địa chỉ của những mạng chưa rõ thông tin với ví tiền này!</string>
 	<string name="send_coins_fragment_available_label">Hiện đã có thể gửi đi</string>
-	<string name="send_coins_fragment_pending">(BTC %s đợi xác nhận)</string>
+	<string name="send_coins_fragment_pending">(LTC %s đợi xác nhận)</string>
 	<string name="send_coins_fragment_amount_label">Số lượng chi trả</string>
 	<string name="send_coins_fragment_amount_empty">Đặt số lượng ở đây</string>
 	<string name="send_coins_fragment_amount_error">Số lượng không hợp lệ!</string>
@@ -101,7 +101,7 @@
 	<string name="transaction_row_message_received_dust">Số lượng nhỏ này có thể không mang tính kinh tế cho lắm khi dành cho chi tiêu.</string>
 	<string name="amount_calculator_dialog_title">Máy tính tiền tệ</string>
 	<string name="amount_calculator_dialog_button_use">Sử dụng</string>
-	<string name="amount_calculator_dialog_exchange_rate">BTC 1 trị giá khoảng %1$s %2$s\nGiá được tải về từ %3$s</string>
+	<string name="amount_calculator_dialog_exchange_rate">LTC 1 trị giá khoảng %1$s %2$s\nGiá được tải về từ %3$s</string>
 	<string name="amount_calculator_dialog_exchange_rate_not_available">Tỉ lệ hoán đổi hiện không có.</string>
 	<string name="network_monitor_activity_title">Giám sát mạng</string>
 	<string name="network_monitor_peer_list_title">Ngang hàn</string>

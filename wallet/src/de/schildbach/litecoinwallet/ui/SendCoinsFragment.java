@@ -23,6 +23,11 @@ import javax.annotation.CheckForNull;
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 
+import com.google.litecoin.params.MainNetParams;
+import com.google.zxing.integration.android.IntentIntegrator;
+import com.google.zxing.integration.android.IntentIntegratorSupportV4;
+import com.google.zxing.integration.android.IntentResult;
+import com.sun.istack.internal.NotNull;
 import de.schildbach.litecoinwallet.*;
 import de.schildbach.litecoinwallet.offline.SendBluetoothTask;
 import org.slf4j.Logger;
@@ -632,16 +637,16 @@ public final class SendCoinsFragment extends SherlockFragment
 	@Override
 	public void onActivityResult(final int requestCode, final int resultCode, final Intent intent)
 	{
-		if (requestCode == REQUEST_CODE_SCAN)
+        IntentResult result = IntentIntegratorSupportV4.parseActivityResult(requestCode, resultCode, intent);
+
+		if (result != null)
 		{
-			if (resultCode == Activity.RESULT_OK)
-			{
-				final String input = intent.getStringExtra(ScanActivity.INTENT_EXTRA_RESULT);
+				final String input = result.getContents();
 
 				new StringInputParser(input)
 				{
 					@Override
-					protected void bitcoinRequest(final Address address, final String addressLabel, final BigInteger amount, final String bluetoothMac)
+					protected void bitcoinRequest(@NotNull final Address address, final String addressLabel, final BigInteger amount, final String bluetoothMac)
 					{
 						SendCoinsActivity.start(activity, address != null ? address.toString() : null, addressLabel, amount, bluetoothMac);
 					}
@@ -658,7 +663,6 @@ public final class SendCoinsFragment extends SherlockFragment
 						dialog(activity, null, R.string.button_scan, messageResId, messageArgs);
 					}
 				}.parse();
-			}
 		}
 		else if (requestCode == REQUEST_CODE_ENABLE_BLUETOOTH)
 		{
@@ -891,7 +895,9 @@ public final class SendCoinsFragment extends SherlockFragment
 
 	private void handleScan()
 	{
-		startActivityForResult(new Intent(activity, ScanActivity.class), REQUEST_CODE_SCAN);
+		// startActivityForResult(new Intent(activity, ScanActivity.class), REQUEST_CODE_SCAN);
+        IntentIntegratorSupportV4 integratorSupportV4 = new IntentIntegratorSupportV4(this);
+        integratorSupportV4.initiateScan();
 	}
 
 	private void handleEmpty()

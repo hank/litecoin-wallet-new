@@ -58,7 +58,7 @@
 	<string name="send_coins_fragment_receiving_address_error_cross_network">%s adresi bu cüzdanla kullanılamaz!</string>
 	<string name="send_coins_fragment_receiving_address_error_cross_network_unknown">Bilinmeyen bir şebekenin adresi bu cüzdanla kullanılamaz!</string>
 	<string name="send_coins_fragment_available_label">Harcamak için kullanılabilir</string>
-	<string name="send_coins_fragment_pending">(%s BTC teyit bekliyor)</string>
+	<string name="send_coins_fragment_pending">(%s LTC teyit bekliyor)</string>
 	<string name="send_coins_fragment_amount_label">Ödenecek miktar</string>
 	<string name="send_coins_fragment_amount_empty">Miktarı buraya giriniz</string>
 	<string name="send_coins_fragment_amount_error">Geçersiz miktar!</string>
@@ -111,7 +111,7 @@
 	<string name="transaction_row_message_received_dust">Bu düşük meblağ muhtemelen hiçbir koşulda ekonomik olarak harcanamaz.</string>
 	<string name="amount_calculator_dialog_title">Döviz hesaplayıcı</string>
 	<string name="amount_calculator_dialog_button_use">Kullan</string>
-	<string name="amount_calculator_dialog_exchange_rate">1 BTC değeri yaklaşık olarak şudur: %1$s %2$s\nPrice fetched from %3$s</string>
+	<string name="amount_calculator_dialog_exchange_rate">1 LTC değeri yaklaşık olarak şudur: %1$s %2$s\nPrice fetched from %3$s</string>
 	<string name="amount_calculator_dialog_exchange_rate_not_available">Döviz kurlarına erişim sağlanamadı. </string>
 	<string name="network_monitor_activity_title">Şebeke İzleyicisi</string>
 	<string name="network_monitor_peer_list_title">Eşler</string>
@@ -209,7 +209,7 @@
 	<string name="button_send_coins">Litecoin gönder</string>
 	<string name="button_scan">Tara</string>
 	<string name="button_edit_address">Adres ilâve et/düzenle</string>
-	<string name="action_open_blockexplorer">blockexplorer.com\'da aç</string>
+	<string name="action_open_blockexplorer">Litecoin Explorer\'da aç</string>
 	<string name="time_today">bugün</string>
 	<string name="address_unlabeled">(etiketsiz)</string>
 
